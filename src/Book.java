@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Book {
     private String title;
     private Author author;
@@ -26,5 +28,31 @@ public class Book {
 
     public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
+    }
+    // метод преобразования класса в строку
+    @Override
+    public String toString() {
+        return title + "; " + author + "; " + publicationYear;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        // проверка, что оба объекта ссылаются на один объект
+        if (this == other) {
+            return true;
+        }
+        // проверка на разность классов и на null
+        if (other == null || this.getClass() != other.getClass()) {
+            return false;
+        }
+        // приведение типа
+        Book a = (Book) other;
+        return Objects.equals(title, a.title) && Objects.equals(author, a.author)
+                && publicationYear == a.publicationYear;
+    }
+    // генерация хэш-кода на основе полей
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(title, author, publicationYear);
     }
 }

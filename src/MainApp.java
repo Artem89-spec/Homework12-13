@@ -6,6 +6,7 @@ public class MainApp {
 
         Book shelter = new Book("Shelter", hugh,2010);
         Book leviathanWakes = new Book("Leviathan wakes", james, 2011);
+        Book other = new Book("other", new Author("Hugh", "Howie"), 2000);
 
 
 
@@ -15,5 +16,11 @@ public class MainApp {
 
         shelter.setPublicationYear(2011);
         System.out.println(shelter.getTitle() + "; " + shelter.getAuthor() + "; " + shelter.getPublicationYear());
+
+        System.out.println(james);
+        System.out.println(leviathanWakes);
+        System.out.println(shelter);
+        System.out.println(james.equals(leviathanWakes.getAuthor()));
+        System.out.println(other.getAuthor().equals(new Author("Hugh", "Howie")));
     }
 }
